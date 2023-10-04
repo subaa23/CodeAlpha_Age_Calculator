@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Age Calculator</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+.age-calculator {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.age-calculator h1 {
+  text-align: center;
+}
+
+.age-calculator input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.age-calculator button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.age-calculator p {
+  text-align: center;
+}
+</style>
+<script>
+function calculateAge() {
+  var dob = document.getElementById("dob").value;
+  var dateOfBirth = new Date(dob);
+  var today = new Date();
+  var age = today.getFullYear() - dateOfBirth.getFullYear();
+  if (today.getMonth() < dateOfBirth.getMonth()) {
+    age--;
+  }
+  document.getElementById("age").innerHTML =
+    "You have lived through " + age + " years of this amazing world.";
+}
+</script>
+</head>
+<body>
+<div class="age-calculator">
+  <h1>Age Calculator</h1>
+
+  <input type="date" id="dob">
+  <button onclick="calculateAge()">Calculate Age</button>
+
+  <p id="age"></p>
+</div>
+</body>
+</html>
